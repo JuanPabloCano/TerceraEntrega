@@ -1,7 +1,16 @@
 import ShoppingCartService from "../../../services/mongo/shoppingCart.service.js";
 
-export default class ShoppingCartDao extends ShoppingCartService{
-    constructor(){
+let instance;
+
+export default class ShoppingCartDao extends ShoppingCartService {
+    constructor() {
         super();
+    }
+
+    static setInstance() {
+        if (!instance) {
+            instance = new ShoppingCartDao();
+        }
+        return instance;
     }
 }

@@ -16,7 +16,7 @@ router.get("/api/randoms", Login.getRandoms);
 router.get("/login", Login.getLogin);
 router.post(
     "/login",
-    passport.authenticate("login", {failureRedirect: "/faillogin"}, null),
+    passport.authenticate("login", { failureRedirect: "/faillogin" }, null),
     Login.postLogin
 );
 router.get("/faillogin", Login.getFaillogin);
@@ -25,7 +25,7 @@ router.get("/faillogin", Login.getFaillogin);
 router.get("/register", Login.getSignup);
 router.post(
     "/register",
-    passport.authenticate("register", {failureRedirect: "/failsignup"}, null),
+    passport.authenticate("register", { failureRedirect: "/failsignup" }, null),
     Login.postSignup
 );
 router.get("/failsignup", Login.getFailsignup);
@@ -39,7 +39,7 @@ function checkAuthentication(req, res, next) {
 }
 
 router.get("/ruta-protegida", checkAuthentication, (req, res) => {
-    const {user} = req;
+    const { user } = req;
     console.log(user);
     res.send("<h1>Ruta OK!</h1>");
 });
@@ -50,4 +50,4 @@ router.get("/logout", Login.getLogout);
 //  FAIL ROUTE
 router.get("*", Login.failRoute);
 
-export const userLogin = router
+export const userLogin = router;

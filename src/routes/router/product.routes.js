@@ -3,17 +3,17 @@ import ProductDao from "../../handlers/dao/mongo/productDao.js";
 
 const router = express.Router();
 
-const productDao = new ProductDao();
+const productDao = ProductDao.setInstance();
 
 router
     .route('/productos')
     .get(productDao.getAllProducts)
-    .post(productDao.createProduct)
+    .post(productDao.createProduct);
 
 router.route('/productos/:id')
     .get(productDao.getProductById)
     .put(productDao.updateProduct)
-    .delete(productDao.deleteProductById)
+    .delete(productDao.deleteProductById);
 
 
 export const productRoutes = router;

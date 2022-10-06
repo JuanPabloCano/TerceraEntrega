@@ -7,5 +7,5 @@ export const router = Router();
 
 router.use('/', productRoutes);
 router.use('/', shoppingCartRoutes);
-router.use('/', userLogin)
+router.use('/', userLogin);
 

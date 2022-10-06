@@ -1,18 +1,19 @@
 import express from 'express';
 import ShoppingCartDao from "../../handlers/dao/mongo/shoppingCartDao.js";
+
 const router = express.Router();
 
-const shoppingCartDao = new ShoppingCartDao();
+const shoppingCartDao = ShoppingCartDao.setInstance();
 
 router
     .route('/carrito')
     .get(shoppingCartDao.getAllShoppingCarts)
-    .post(shoppingCartDao.createShoppingCart)
+    .post(shoppingCartDao.createShoppingCart);
 
 router.route('/carrito/:id/productos')
     .get(shoppingCartDao.getProductsByShoppingCart)
     .put()
-    .delete()
+    .delete();
 
 
 export const shoppingCartRoutes = router;

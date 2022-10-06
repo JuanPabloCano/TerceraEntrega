@@ -71,7 +71,7 @@ function getInfo(req, res) {
         'Path ejecucion': process.execPath,
         'Process Id': process.pid,
         'Carpeta proyecto': process.cwd()
-    })
+    });
 }
 
 function generateRandomInteger(cantidad) {
@@ -85,7 +85,7 @@ function generateRandomInteger(cantidad) {
 function generateRandomObject(cantidad) {
     const randomsObject = {};
     for (let element of generateRandomInteger(cantidad)) {
-        if(randomsObject[element]){
+        if (randomsObject[element]) {
             randomsObject[element] += 1;
         } else {
             randomsObject[element] = 1;
@@ -95,7 +95,7 @@ function generateRandomObject(cantidad) {
 }
 
 function getRandoms(req, res) {
-    const totalRandom = req.query.random ? Number(req.query.random) : 100000000
+    const totalRandom = req.query.random ? Number(req.query.random) : 100000000;
     res.json(generateRandomObject(totalRandom));
 }
 

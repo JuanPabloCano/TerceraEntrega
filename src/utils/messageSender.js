@@ -7,10 +7,10 @@ export default class MessageSender {
         const client = twilio(Config.ACCOUNT_SID, Config.AUTH_TOKEN);
 
         const options = {
-            body: `Purchase made successfully ${products}`,
+            body: `Purchase made successfully ${ products }`,
             from: '+19289165537',
             to: number,
-        }
+        };
         try {
             const message = await client.messages.create(options);
             console.log(message);

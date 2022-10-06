@@ -19,13 +19,13 @@ export default class EmailSender {
                 user: Config.TEST_EMAIL,
                 password: Config.PASSWORD
             }
-        })
+        });
         const mailOptions = {
             from: 'Server Node.Js',
             to: receiver,
             subject: this.#SUBJECT,
             message: `${ this.#MESSAGE } with items ${ products }`
-        }
+        };
 
         try {
             const info = await transport.sendEmail(mailOptions);
@@ -33,7 +33,7 @@ export default class EmailSender {
         } catch (err) {
             console.log({
                 message: err.message
-            })
+            });
         }
     }
 }

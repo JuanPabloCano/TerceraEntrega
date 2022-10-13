@@ -7,11 +7,11 @@ const connectionString = Config.MONGO_DB_CONNECTION;
 MongoConfig.init(connectionString, 'user');
 
 const UserSchema = new Schema({
-    username: String,
-    password: String,
-    email: String,
-    firstName: String,
-    lastName: String
+  username: String,
+  password: String,
+  email: String,
+  firstName: String,
+  lastName: String
 });
 
 export const User = model('user', UserSchema);

@@ -6,14 +6,14 @@ const router = express.Router();
 const productDao = ProductDao.setInstance();
 
 router
-    .route('/productos')
-    .get(productDao.getAllProducts)
-    .post(productDao.createProduct);
+  .route('/productos')
+  .get(productDao.getAllProducts)
+  .post(productDao.createProduct);
 
 router.route('/productos/:id')
-    .get(productDao.getProductById)
-    .put(productDao.updateProduct)
-    .delete(productDao.deleteProductById);
+      .get(productDao.getProductById)
+      .put(productDao.updateProduct)
+      .delete(productDao.deleteProductById);
 
 
 export const productRoutes = router;

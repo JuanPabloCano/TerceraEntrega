@@ -15,33 +15,33 @@ router.get("/api/randoms", Login.getRandoms);
 //  LOGIN
 router.get("/login", Login.getLogin);
 router.post(
-    "/login",
-    passport.authenticate("login", { failureRedirect: "/faillogin" }, null),
-    Login.postLogin
+  "/login",
+  passport.authenticate("login", { failureRedirect: "/faillogin" }, null),
+  Login.postLogin
 );
 router.get("/faillogin", Login.getFaillogin);
 
 //  REGISTER
 router.get("/register", Login.getSignup);
 router.post(
-    "/register",
-    passport.authenticate("register", { failureRedirect: "/failsignup" }, null),
-    Login.postSignup
+  "/register",
+  passport.authenticate("register", { failureRedirect: "/failsignup" }, null),
+  Login.postSignup
 );
 router.get("/failsignup", Login.getFailsignup);
 
 function checkAuthentication(req, res, next) {
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        res.redirect("/login");
-    }
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
 }
 
 router.get("/ruta-protegida", checkAuthentication, (req, res) => {
-    const { user } = req;
-    console.log(user);
-    res.send("<h1>Ruta OK!</h1>");
+  const { user } = req;
+  console.log(user);
+  res.send("<h1>Ruta OK!</h1>");
 });
 
 //  LOGOUT

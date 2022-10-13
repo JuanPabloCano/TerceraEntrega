@@ -3,14 +3,14 @@ import ProductService from '../../../services/mongo/product.service.js';
 let instance;
 
 export default class ProductDao extends ProductService {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    static setInstance() {
-        if (!instance) {
-            instance = new ProductDao();
-        }
-        return instance;
+  static setInstance() {
+    if (!instance) {
+      instance = new ProductDao();
     }
+    return instance;
+  }
 }

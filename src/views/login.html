@@ -4,10 +4,10 @@
 <head>
     <title>Login</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 
 </head>
 
@@ -17,13 +17,13 @@
     <div class=jumbotron>
         <h1>LOGIN</h1>
         <br>
-        <form class="form" role="form" action="/login" method="post" autocomplete="off">
+        <form action="/login" autocomplete="off" class="form" method="post" role="form">
 
             <div class="form-group">
-                <input name='username' placeholder="Nombre" class="form-control" type="text" required>
+                <input class="form-control" name='username' placeholder="Nombre" required type="text">
             </div>
             <div class="form-group">
-                <input name='password' placeholder="Password" class="form-control" type="password" required>
+                <input class="form-control" name='password' placeholder="Password" required type="password">
             </div>
 
             <div class="form-group">
@@ -38,13 +38,13 @@
 </div>
 
 <script>
-    function redireccionar(pagina) {
-        location.href = pagina;
-    }
+  function redireccionar(pagina) {
+    location.href = pagina;
+  }
 
-    function goSignup() {
-        redireccionar('/register');
-    }
+  function goSignup() {
+    redireccionar('/register');
+  }
 </script>
 
 

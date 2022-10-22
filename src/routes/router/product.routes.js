@@ -7,13 +7,13 @@ const productDao = ProductDao.setInstance();
 
 router
   .route('/productos')
-  .get(productDao.getAllProducts)
-  .post(productDao.createProduct);
+  .get(productDao.getAllProducts.bind(productDao))
+  .post(productDao.createProduct.bind(productDao));
 
 router.route('/productos/:id')
-      .get(productDao.getProductById)
-      .put(productDao.updateProduct)
-      .delete(productDao.deleteProductById);
+      .get(productDao.getProductById.bind(productDao))
+      .put(productDao.updateProduct.bind(productDao))
+      .delete(productDao.deleteProductById.bind(productDao));
 
 
 export const productRoutes = router;

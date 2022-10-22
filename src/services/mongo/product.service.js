@@ -5,10 +5,13 @@ import ProductRepository from "../repositories/product.repository.js";
 
 export default class ProductService {
 
+  constructor(productRepository) {
+    this.productRepository = new ProductRepository;
+  }
   getAllProducts(req, res) {
     const NUMBER = '+573194968738';
     const EMAIL = 'juancanoestudio@gmail.com';
-    ProductRepository.find()
+    this.productRepository.find()
                      .then((product) => {
                        MessageSender.sendMessage(NUMBER, product)
                                     .then(() => console.log(product))
@@ -36,7 +39,7 @@ export default class ProductService {
   updateProduct(req, res) {
     const { id } = req.params;
     const { name, description, code, picture, price, stock } = req.body;
-    ProductRepository.findByIdAndUpdate(id, { name, description, code, picture, price, stock })
+    this.productRepository.findByIdAndUpdate(id, { name, description, code, picture, price, stock })
                      .then(() => {
                        res.status(200).json({ message: 'Product updated successfully' });
                      }).catch((error) => {
@@ -47,7 +50,7 @@ export default class ProductService {
 
   getProductById(req, res) {
     const { id } = req.params;
-    ProductRepository.findById(id)
+    this.productRepository.findById(id)
                      .then((product) => {
                        res.status(200).json({ product });
                      }).catch((error) => {
@@ -58,7 +61,7 @@ export default class ProductService {
 
   deleteProductById(req, res) {
     const { id } = req.params;
-    ProductRepository.findByIdAndDelete(id)
+    this.productRepository.findByIdAndDelete(id)
                      .then(() => {
                        res.status(204).json({ id });
                      }).catch((error) => {
